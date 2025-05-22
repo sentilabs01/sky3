@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
 import { renderCanvas } from "@/components/ui/canvas";
 import { Shapes, ArrowRight, Plus } from "lucide-react";
-import Image from "next/image";
 import { Button } from "./button";
+import Image from "next/image";
 
 export function Hero() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -24,7 +23,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="home" className="relative overflow-hidden">
+    <section id="home" className="relative overflow-hidden min-h-screen flex flex-col justify-center items-center px-2 py-4">
       <video
         autoPlay
         loop
@@ -96,9 +95,9 @@ export function Hero() {
             </a>
           </div>
           <div className="flex justify-center items-center gap-8 mt-10">
-            <img src="https://automationalien.s3.us-east-1.amazonaws.com/make-logo-png.png" alt="Make Logo" className="h-24 w-auto" />
-            <img src="https://automationalien.s3.us-east-1.amazonaws.com/n8n-logo-png_seeklogo-470809.png" alt="n8n Logo" className="h-24 w-auto" />
-            <img src="https://automationalien.s3.us-east-1.amazonaws.com/Zapier_logo.png" alt="Zapier Logo" className="h-10 w-auto" />
+            <Image src="https://automationalien.s3.us-east-1.amazonaws.com/make-logo-png.png" alt="Make Logo" width={100} height={40} />
+            <Image src="https://automationalien.s3.us-east-1.amazonaws.com/n8n-logo-png_seeklogo-470809.png" alt="n8n Logo" width={100} height={40} />
+            <Image src="https://automationalien.s3.us-east-1.amazonaws.com/Zapier_logo.png" alt="Zapier Logo" width={100} height={40} />
           </div>
         </div>
       </div>
@@ -106,25 +105,15 @@ export function Hero() {
         className="bg-skin-base pointer-events-none absolute inset-0 mx-auto z-10"
         id="canvas"
       ></canvas>
-      {/* Animated Logo Cursor */}
+      {/* Animated Rocket Cursor */}
       <div
         ref={cursorRef}
-        className="pointer-events-none fixed left-0 top-0 z-50 w-12 h-12 rounded-full flex items-center justify-center transition-transform duration-100 will-change-transform"
+        className="pointer-events-none fixed left-0 top-0 z-50 w-12 h-12 flex items-center justify-center transition-transform duration-100 will-change-transform text-3xl"
         style={{ transform: 'translate(-50%, -50%)' }}
       >
-        <Image
-          src="https://automationalien.s3.us-east-1.amazonaws.com/alien.PNG"
-          alt="Cursor Logo"
-          width={48}
-          height={48}
-          className="rounded-full shadow-lg"
-          priority
-        />
+        <span role="img" aria-label="Rocket">🚀</span>
       </div>
-      {/* JotForm Agent Script */}
-      <script
-        src="https://cdn.jotfor.ms/agent/embedjs/01952a9d3fb275588d4fce8dc19d1aa9d6e0/embed.js?skipWelcome=1&maximizable=1"
-      ></script>
+      {/* TODO: Use <Script /> from next/script for JotForm agent script */}
     </section>
   );
 } 
