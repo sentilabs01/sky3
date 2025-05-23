@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { renderCanvas } from "@/components/ui/canvas";
 import { Shapes, ArrowRight, Plus } from "lucide-react";
-import { Button } from "./button";
 import Image from "next/image";
 import Script from "next/script";
 
