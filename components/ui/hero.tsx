@@ -5,6 +5,7 @@ import { renderCanvas } from "@/components/ui/canvas";
 import { Shapes, ArrowRight, Plus } from "lucide-react";
 import { Button } from "./button";
 import Image from "next/image";
+import Script from "next/script";
 
 export function Hero() {
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -83,17 +84,6 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex justify-center gap-2 mt-10 mb-10">
-            <a href="https://agent.jotform.com/01952a9d3fb275588d4fce8dc19d1aa9d6e0" target="_blank" rel="noopener noreferrer">
-              <Button
-                variant="default"
-                size="lg"
-                className="backdrop-blur-md bg-white/30 border border-white/30 shadow-lg text-black font-semibold rounded-xl px-8 py-4 transition hover:bg-white/50 hover:shadow-2xl"
-              >
-                Inquire Today
-              </Button>
-            </a>
-          </div>
           <div className="flex justify-center items-center gap-8 mt-10">
             <Image src="https://automationalien.s3.us-east-1.amazonaws.com/make-logo-png.png" alt="Make Logo" width={100} height={40} />
             <Image src="https://automationalien.s3.us-east-1.amazonaws.com/n8n-logo-png_seeklogo-470809.png" alt="n8n Logo" width={100} height={40} />
@@ -113,7 +103,11 @@ export function Hero() {
       >
         <span role="img" aria-label="Rocket">🚀</span>
       </div>
-      {/* TODO: Use <Script /> from next/script for JotForm agent script */}
+      {/* JotForm Agent Script */}
+      <Script
+        src="https://cdn.jotfor.ms/agent/embedjs/01952a9d3fb275588d4fce8dc19d1aa9d6e0/embed.js?skipWelcome=1&maximizable=1"
+        strategy="afterInteractive"
+      />
     </section>
   );
 } 
